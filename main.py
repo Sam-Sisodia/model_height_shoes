@@ -1,5 +1,6 @@
-from sklearn.linear_model import LinearRegression
 
+import pandas as pd
+import numpy as np
 
 
 
@@ -105,14 +106,23 @@ print()
 print()
 
 
-import numpy as np
 
-# Heights (cm) and corresponding shoe sizes
-# X_train = np.array([160, 165, 170, 175, 180, 185, 190])
-# y_train = np.array([39, 40, 41, 42, 43, 44, 45])
 
-X_train = np.array([10,20])  #height
-y_train = np.array([2,4]) #size
+
+
+
+path = "Data.xlsx"
+sheet = "firstsheet"
+
+# Read the data from the specified sheet
+data = pd.read_excel(path)
+
+# Assuming the columns are named 'Height (cm)' and 'Approximate Shoe Size (US)'
+X_train = np.array(data['Height (cm)'])
+y_train = np.array(data['Approximate Shoe Size (US)'])
+print(X_train)
+
+
 
 n =  len(X_train)
 

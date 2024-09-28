@@ -121,6 +121,7 @@ data = pd.read_excel(path)
 X_train = np.array(data['Height (cm)'])
 y_train = np.array(data['Approximate Shoe Size (US)'])
 print(X_train)
+print(y_train)
 
 
 
@@ -156,3 +157,21 @@ print("This is b ", b)
 
 
 
+
+def predict(height, m, b):
+    return m * height + b
+
+
+
+
+# predicted_shoe_sizes = [predict(height, m, b) for height in X_train]
+
+# # Print the results
+# for height, shoe_size in zip(X_train, predicted_shoe_sizes):
+#     print(f"Predicted shoe size for height {height} cm: {shoe_size:.2f}")
+
+
+
+user_height = float(input("Enter your height in cm: "))
+predicted_shoe_size = predict(user_height, m, b)
+print(f"Predicted shoe size for height {user_height} cm: {predicted_shoe_size:.2f}")
